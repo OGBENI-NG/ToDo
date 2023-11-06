@@ -9,25 +9,25 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
   <div
     onClick={() => onToggle(todo.id)}
-    className={`bg-${todo.isChecked ? 'gray-200' : 'green-50'} flex items-start mb-5  p-4 rounded-xl gap-3  ${deleteId && "animate-myAnim"} text-${todo.isChecked ? 'gray-500 line-through' : 'green-600'} text-2xl`}
+    className={`bg-${todo.isChecked ? 'gray-200' : 'green-50'} flex items-start mb-5  p-4 rounded-xl gap-3  ${deleteId && "animate-myAnim"}`}
    
   >
     <div className="mt-1">
       {todo.isChecked ? (
         <FiCheckCircle className="text-gray-500 text-2xl" />
       ) : (
-        <FiCircle className="text-green-600 text-2xl" />
+        <FiCircle className="text-green-700 text-2xl" />
       )}
     </div>
     <p
-      className={``}
+      className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-700'} text-2xl`}
     >
       {todo.text}
     </p>
     {todo.isChecked && (
       <div className="ml-auto">
         <RiDeleteBin5Fill
-          className="text-3xl block text-red-300 cursor-pointer"
+          className="text-3xl block text-red-500 cursor-pointer"
           onClick={() => onDelete(todo.id)}
         />
       </div>
@@ -96,7 +96,7 @@ const App = () => {
     <main className="p-5 pt-8 h-screen w-full">
        <section>
       <div className="flex items-baseline justify-between pb-8 ">
-        <h1 className="capitalize text-5xl text-green-600 font-headerFont">
+        <h1 className="capitalize text-5xl text-green-700 font-headerFont">
           todo
         </h1>
         <h2 className="text-l text-gray-500 font-semibold">{formattedDate}</h2>
@@ -113,7 +113,7 @@ const App = () => {
         />
         <button
           onClick={addToDo}
-          className="uppercase h-14 px-4 text-xl rounded-xl font-bold text-white font-mainFont bg-green-600"
+          className="uppercase h-14 px-4 text-xl rounded-xl font-bold text-white font-mainFont bg-green-700"
         >
           add
         </button>
