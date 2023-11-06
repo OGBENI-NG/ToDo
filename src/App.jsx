@@ -9,20 +9,18 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
   <div
     onClick={() => onToggle(todo.id)}
-    className={`flex items-start mb-5 bg-green-50 p-4 rounded-xl gap-3  ${deleteId && "animate-myAnim"}`}
-    style={{backgroundColor: todo.isChecked && "gray"}}
+    className={`flex items-start mb-5 bg-${todo.isChecked ? 'gray-200' : 'green-50'} p-4 rounded-xl gap-3  ${deleteId && "animate-myAnim"}`}
+   
   >
     <div className="mt-1">
       {todo.isChecked ? (
-        <FiCheckCircle className="text-red-600 text-2xl" />
+        <FiCheckCircle className="text-gray-500 text-2xl" />
       ) : (
-        <FiCircle className="text-green-700 text-2xl" />
+        <FiCircle className="text-green-600 text-2xl" />
       )}
     </div>
     <p
-      className={`text-green-800 text-2xl ${
-        todo.isChecked && "text-gray-700 line-through"
-      }`}
+      className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-600'} text-2xl`}
     >
       {todo.text}
     </p>
@@ -98,10 +96,10 @@ const App = () => {
     <main className="p-5 pt-8 h-screen w-full">
        <section>
       <div className="flex items-baseline justify-between pb-8 ">
-        <h1 className="capitalize text-5xl text-red-600 font-headerFont">
+        <h1 className="capitalize text-5xl text-green-600 font-headerFont">
           todo
         </h1>
-        <h2 className="text-xl text-gray-500 font-semibold">{formattedDate}</h2>
+        <h2 className="text-l text-gray-500 font-semibold">{formattedDate}</h2>
       </div>
 
       <section className="flex items-center gap-2 p-0 w-full">
