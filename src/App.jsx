@@ -10,7 +10,7 @@ const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
   <div
     onClick={() => onToggle(todo.id)}
     className={`flex items-start mb-5 bg-green-50 p-4 rounded-xl gap-3 ${
-      todo.isChecked && "bg-gray-300 "
+      todo.isChecked && "bg-gray-400 "
     } ${deleteId && "animate-myAnim"}`}
   >
     <div className="mt-1">
