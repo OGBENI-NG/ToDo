@@ -128,7 +128,7 @@ const App = () => {
       </section>
     </section>
       {!todoList.length ? 
-        (<h2 className="text-center text-xl text-green-700 uppercase mt-20 font-headerFont tracking-widest">no todo</h2>
+        (<h2 className="text-center text-3xl text-green-700 uppercase mt-20 font-headerFont tracking-widest">no todo</h2>
         ):(
         <div className="mt-5">{todoWrapper()}</div>
       )}
