@@ -117,7 +117,7 @@ const App = () => {
           value={inputValue}
           onChange={handleChange}
           placeholder="Type here..."
-          className="border-2 text-gray-500  focus:outline-0 focus:border-4 focus:border-green-700 border-gray-300 bg-gray-50 w-full h-14 rounded-xl p-2 px-3 text-2xl"
+          className="border-2 text-gray-500 focus:outline-offset-0  focus:outline-0 focus:border-4 focus:border-green-700 border-gray-300 bg-gray-50 w-full h-14 rounded-xl p-2 px-3 text-2xl"
         />
         <button
           onClick={addToDo}
