@@ -10,19 +10,19 @@ const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
   <div
     onClick={() => onToggle(todo.id)}
     className={`${deleteId && "animate-myAnim"} flex items-start mb-5 bg-green-50 p-4 rounded-xl gap-3 ${
-      todo.isChecked && "bg-gray-300 "
+      todo.isChecked && "bg-gray-400 "
     }`}
   >
     <div className="mt-1">
       {todo.isChecked ? (
-        <FiCheckCircle className="text-gray-500 text-2xl" />
+        <FiCheckCircle className="text-gray-800 text-2xl" />
       ) : (
         <FiCircle className="text-green-700 text-2xl" />
       )}
     </div>
     <p
       className={`text-green-700 text-2xl ${
-        todo.isChecked && "line-through text-gray-600"
+        todo.isChecked && "line-through text-gray-800"
       }`}
     >
       {todo.text}
