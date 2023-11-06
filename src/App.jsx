@@ -27,7 +27,7 @@ const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
     {todo.isChecked && (
       <div className="ml-auto">
         <RiDeleteBin5Fill
-          className="text-3xl block text-red-500 cursor-pointer"
+          className="text-3xl block text-red-300 cursor-pointer"
           onClick={() => onDelete(todo.id)}
         />
       </div>
