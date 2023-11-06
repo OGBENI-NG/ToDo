@@ -99,7 +99,7 @@ const App = () => {
     <main className="p-5 pt-8 h-screen w-full">
        <section>
       <div className="flex items-baseline justify-between pb-8 ">
-        <h1 className="capitalize text-5xl text-green-600 font-headerFont">
+        <h1 className="capitalize text-5xl text-red-600 font-headerFont">
           todo
         </h1>
         <h2 className="text-xl text-gray-500 font-semibold">{formattedDate}</h2>
