@@ -21,8 +21,8 @@ const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
       )}
     </div>
     <p
-      className={`text-green-700 text-2xl ${
-        todo.isChecked && "text-gray-600 line-through "
+      className={`text-green-800 text-2xl ${
+        todo.isChecked && "text-gray-700 line-through "
       }`}
     >
       {todo.text}
