@@ -6,39 +6,45 @@ import { FiCircle, FiCheckCircle } from "react-icons/fi";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
 
-const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
-  <div
-    onClick={() => onToggle(todo.id)}
-    className={`${todo.isChecked ? 'bg-gray-200' : 'bg-green-50'} flex items-start mb-5  p-4 rounded-xl gap-3  ${deleteId && "animate-myAnim"}`}
-   
-  >
-    <div className="mt-1">
-      {todo.isChecked ? (
-        <FiCheckCircle className="text-gray-500 text-2xl" />
-      ) : (
-        <FiCircle className="text-green-700 text-2xl" />
+const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
+  
+  return(
+    
+    <div
+      onClick={() => onToggle(todo.id)}
+      className={`${todo.isChecked ? 'bg-gray-200' : 'bg-green-50'} flex items-start mb-5  p-4 rounded-xl gap-3  ${slideIn && "animate-myAnim"}`}
+     
+    >
+      <div className="mt-1">
+        {todo.isChecked ? (
+          <FiCheckCircle className="text-gray-500 text-2xl" />
+        ) : (
+          <FiCircle className="text-green-700 text-2xl" />
+        )}
+      </div>
+      <p
+        className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-700'} text-2xl`}
+      >
+        {todo.text}
+      </p>
+      {todo.isChecked && (
+        <div className="ml-auto">
+          <RiDeleteBin5Fill
+            className="text-3xl block text-red-500 cursor-pointer"
+            onClick={() => onDelete(todo.id)}
+          />
+        </div>
       )}
     </div>
-    <p
-      className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-700'} text-2xl`}
-    >
-      {todo.text}
-    </p>
-    {todo.isChecked && (
-      <div className="ml-auto">
-        <RiDeleteBin5Fill
-          className="text-3xl block text-red-500 cursor-pointer"
-          onClick={() => onDelete(todo.id)}
-        />
-      </div>
-    )}
-  </div>
-);
+    
+  )
+};
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState(storeInputValue);
-  const [deleteId, setDeleteId] = useState(false);
+  const [slideIn, setSlicedIn] = useState(null)
+
 
   function storeInputValue() {
     const storeInput = localStorage.getItem("todoList");
@@ -63,7 +69,7 @@ const App = () => {
     const newTodo = { id: generateUniqueId(), text: inputValue, isChecked: false };
     setTodoList((prevTodo) => [newTodo, ...prevTodo]);
     setInputValue("");
-    setDeleteId(true);
+    setSlicedIn(newTodo);
   };
 
   const toggleTodo = (id) => {
@@ -76,7 +82,9 @@ const App = () => {
 
   const handleDelete = (id) => {
     setTodoList((prevTodo) => prevTodo.filter((todo) => todo.id !== id));
+    
   };
+  
 
   const todoWrapper = () => (
     <>
@@ -86,7 +94,7 @@ const App = () => {
           todo={todo}
           onToggle={toggleTodo}
           onDelete={handleDelete}
-          deleteId={deleteId}
+          slideIn={slideIn}
         />
       ))}
     </>
@@ -99,7 +107,7 @@ const App = () => {
         <h1 className="capitalize text-5xl text-green-700 font-headerFont">
           todo
         </h1>
-        <h2 className="text-l text-gray-500 font-semibold">{formattedDate}</h2>
+        <h2 className="text-s tracking-wide text-gray-500 font-semibold">{formattedDate}</h2>
       </div>
 
       <section className="flex items-center gap-2 p-0 w-full">
