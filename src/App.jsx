@@ -9,9 +9,8 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
   <div
     onClick={() => onToggle(todo.id)}
-    className={`flex items-start mb-5 bg-green-50 p-4 rounded-xl gap-3 ${
-      todo.isChecked && "bg-gray-400 "
-    } ${deleteId && "animate-myAnim"}`}
+    className={`flex items-start mb-5 bg-green-50 p-4 rounded-xl gap-3  ${deleteId && "animate-myAnim"}`}
+    style={{backgroundColor: todo.isChecked && "gray"}}
   >
     <div className="mt-1">
       {todo.isChecked ? (
@@ -22,7 +21,7 @@ const TodoItem = ({ todo, onToggle, onDelete, deleteId}) => (
     </div>
     <p
       className={`text-green-800 text-2xl ${
-        todo.isChecked && "text-gray-700 line-through bg-gray-800"
+        todo.isChecked && "text-gray-700 line-through"
       }`}
     >
       {todo.text}
