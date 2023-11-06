@@ -12,7 +12,7 @@ const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
     
     <div
       onClick={() => onToggle(todo.id)}
-      className={`${todo.isChecked ? 'bg-gray-200' : 'bg-green-50'} flex items-start mb-5  p-4 rounded-xl gap-3  ${slideIn && "animate-myAnim"}`}
+      className={`${todo.isChecked ? 'bg-gray-300' : 'bg-green-50'} flex items-start mb-5  p-4 rounded-xl gap-3  ${slideIn && "animate-myAnim"}`}
      
     >
       <div className="mt-1">
@@ -101,7 +101,7 @@ const App = () => {
   );
 
   return (
-    <main className="p-5 pt-8 h-screen w-full">
+    <main className="p-5 pt-8 h-screen w-full bg-gray-200">
        <section>
       <div className="flex items-baseline justify-between pb-8 ">
         <h1 className="capitalize text-5xl text-green-700 font-headerFont">
@@ -116,7 +116,8 @@ const App = () => {
           name="text"
           value={inputValue}
           onChange={handleChange}
-          className="border-2 focus:border-none outline-3 focus:ring-green-200 focus:ring focus:outline-green-300 border-gray-300 w-full h-14 
+          placeholder="Type here..."
+          className="border-2 bg-gray-100 focus:border-none outline-3 focus:ring-green-300 focus:ring focus:outline-green-300 border-gray-400 w-full h-14 
             rounded-xl p-2 px-3 text-2xl"
         />
         <button
