@@ -107,7 +107,7 @@ const App = () => {
         <h1 className="capitalize text-5xl text-green-700 font-headerFont">
           todo
         </h1>
-        <h2 className="text-s tracking-wide text-gray-500 font-semibold">{formattedDate}</h2>
+        <h2 className="text-xs tracking-wider text-gray-400 font-semibold">{formattedDate}</h2>
       </div>
 
       <section className="flex items-center gap-2 p-0 w-full bg-slate-50">
@@ -117,8 +117,7 @@ const App = () => {
           value={inputValue}
           onChange={handleChange}
           placeholder="Type here..."
-          className="border-2 bg-gray-50 focus:border-none outline-3 focus:ring-green-300 focus:ring focus:outline-green-300 border-gray-400 w-full h-14 
-            rounded-xl p-2 px-3 text-2xl"
+          className="border-4 text-gray-500  focus:outline-green-600 focus:border-none focus:outline-offset-0 border-gray-300 bg-gray-50 w-full h-14 rounded-xl p-2 px-3 text-2xl"
         />
         <button
           onClick={addToDo}
@@ -128,7 +127,11 @@ const App = () => {
         </button>
       </section>
     </section>
-      <div className="mt-5">{todoWrapper()}</div>
+      {!todoList.length ? 
+        (<h2 className="text-center text-xl text-green-700 uppercase mt-20 font-headerFont tracking-widest">no todo</h2>
+        ):(
+        <div className="mt-5">{todoWrapper()}</div>
+      )}
     </main>
   );
 };

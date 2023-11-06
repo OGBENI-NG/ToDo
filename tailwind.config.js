@@ -23,7 +23,7 @@ export default {
         },
       },
       animation: {
-        myAnim: 'myAnim .3s ease 0s 1 normal forwards',
+        myAnim: 'myAnim .5s ease 0s 1 normal forwards',
       },
     },
   },
