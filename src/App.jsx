@@ -16,14 +16,14 @@ const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
         ${todo.isChecked ? 'bg-gray-50' : 'bg-green-50'} 
         flex items-start mb-5  p-4 rounded-xl gap-3 md:mb-7 md:py-6 md:px-8 
         ${slideIn && "animate-myAnim"}
-        drop-shadow-lg
+        drop-shadow-md
       `}
     >
       <div className="mt-1">
         {todo.isChecked ? (
           <FiCheckCircle className="text-gray-500 text-2xl md:text-4xl" />
         ) : (
-          <FiCircle className="text-green-700 text-2xl md:text-4xl" />
+          <FiCircle className="text-green-500 text-2xl md:text-4xl" />
         )}
       </div>
       <p
@@ -110,10 +110,12 @@ const App = () => {
     >
       <section>
       <div className="flex items-baseline justify-between pb-8 ">
-        <h1 className="capitalize text-5xl text-green-700 font-headerFont md:text-6xl">
+        <h1 className="capitalize text-5xl text-green-500 font-headerFont md:text-6xl">
           todo
         </h1>
-        <h2 className="text-s tracking-wider text-gray-500 font-semibold md:text-lg">{formattedDate}</h2>
+        <h2 
+          style={{textShadow: "0px 0px 2px black"}}
+          className="text-s tracking-wider text-gray-600 font-semibold md:text-lg">{formattedDate}</h2>
       </div>
 
       <section className="flex items-center gap-2 p-0 w-full md:gap-4">
@@ -124,13 +126,14 @@ const App = () => {
           onChange={handleChange}
           placeholder="Type here..."
           className="
-            border-4 text-zinc-900 focus:outline-green-600 
-            focus:border-none border-green-600
+            border-4 text-gray-600 focus:outline-green-500 
+            focus:border-none border-green-500
             bg-slate-200 w-full h-14 rounded-xl p-2 px-3 text-2xl
             md:h-20 md:text-3xl md:px-4
           "
         />
         <button
+          style={{textShadow: "0px 0px 1px black"}}
           disabled={inputValue === "" && true}
           onClick={addToDo}
           className="uppercase h-14 px-4 text-xl rounded-xl 
