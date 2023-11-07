@@ -15,7 +15,7 @@ const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
         ${todo.isChecked ? 'bg-gray-50' : 'bg-green-50'} 
         flex items-start mb-5  p-4 rounded-xl gap-3 md:mb-7 md:py-6 md:px-8 
         ${slideIn && "animate-myAnim"}
-        drop-shadow-md
+        shadow-md
       `}
     >
       <div className="mt-1">
@@ -142,7 +142,7 @@ const App = () => {
           onClick={addToDo}
           className="uppercase h-14 px-4 text-xl rounded-xl 
           font-bold text-white font-mainFont bg-green-500 
-          md:h-20 md:text-2xl md:px-10 drop-shadow-xl"
+          md:h-20 md:text-2xl md:px-10 shadow-md"
         >
           add
         </button>
