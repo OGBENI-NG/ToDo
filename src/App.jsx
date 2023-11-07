@@ -114,7 +114,7 @@ const App = () => {
           todo
         </h1>
         <h2 
-          style={{textShadow: "0px 0px 2px black"}}
+          style={{textShadow: "0px 0px 1px black"}}
           className="text-s tracking-wider text-gray-600 font-semibold md:text-lg">{formattedDate}</h2>
       </div>
 
@@ -133,7 +133,6 @@ const App = () => {
           "
         />
         <button
-          style={{textShadow: "0px 0px 1px black"}}
           disabled={inputValue === "" && true}
           onClick={addToDo}
           className="uppercase h-14 px-4 text-xl rounded-xl 
