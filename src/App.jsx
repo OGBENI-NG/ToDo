@@ -12,25 +12,29 @@ const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
     
     <div
       onClick={() => onToggle(todo.id)}
-      className={`${todo.isChecked ? 'bg-gray-100' : 'bg-green-50'} flex items-start mb-5  p-4 rounded-xl gap-3  ${slideIn && "animate-myAnim"}`}
-     
+      className={`
+        ${todo.isChecked ? 'bg-gray-50' : 'bg-green-50'} 
+        flex items-start mb-5  p-4 rounded-xl gap-3 md:mb-7 md:py-6 md:px-8 
+        ${slideIn && "animate-myAnim"}
+        drop-shadow-lg
+      `}
     >
       <div className="mt-1">
         {todo.isChecked ? (
-          <FiCheckCircle className="text-gray-500 text-2xl" />
+          <FiCheckCircle className="text-gray-500 text-2xl md:text-4xl" />
         ) : (
-          <FiCircle className="text-green-700 text-2xl" />
+          <FiCircle className="text-green-700 text-2xl md:text-4xl" />
         )}
       </div>
       <p
-        className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-700'} text-2xl`}
+        className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-700'} text-2xl md:text-4xl`}
       >
         {todo.text}
       </p>
       {todo.isChecked && (
         <div className="ml-auto">
           <RiDeleteBin5Fill
-            className="text-3xl block text-red-500 cursor-pointer"
+            className="text-3xl block text-red-500 cursor-pointer md:text-4xl"
             onClick={() => onDelete(todo.id)}
           />
         </div>
@@ -101,27 +105,37 @@ const App = () => {
   );
 
   return (
-    <main className="p-5 pt-8 h-screen w-full">
-       <section>
+    <main className="p-5 pt-8 h-screen w-full md:px-10 lg:w4/5 lg:m-auto 
+      lg:py-12 lg:px-14 xl:py-16 xl:px-16 xl:w-4/5 bg-slate-200"
+    >
+      <section>
       <div className="flex items-baseline justify-between pb-8 ">
-        <h1 className="capitalize text-5xl text-green-700 font-headerFont">
+        <h1 className="capitalize text-5xl text-green-700 font-headerFont md:text-6xl">
           todo
         </h1>
-        <h2 className="text-xs tracking-wider text-gray-400 font-semibold">{formattedDate}</h2>
+        <h2 className="text-s tracking-wider text-gray-500 font-semibold md:text-lg">{formattedDate}</h2>
       </div>
 
-      <section className="flex items-center gap-2 p-0 w-full bg-slate-50">
+      <section className="flex items-center gap-2 p-0 w-full md:gap-4">
         <input
           type="text"
           name="text"
           value={inputValue}
           onChange={handleChange}
           placeholder="Type here..."
-          className="border-2 text-gray-500 focus:outline-green-600 focus:border-4 focus:border-none border-gray-300 bg-gray-50 w-full h-14 rounded-xl p-2 px-3 text-2xl"
+          className="
+            border-4 text-zinc-900 focus:outline-green-600 
+            focus:border-none border-green-600
+            bg-slate-200 w-full h-14 rounded-xl p-2 px-3 text-2xl
+            md:h-20 md:text-3xl md:px-4
+          "
         />
         <button
+          disabled={inputValue === "" && true}
           onClick={addToDo}
-          className="uppercase h-14 px-4 text-xl rounded-xl font-bold text-white font-mainFont bg-green-700"
+          className="uppercase h-14 px-4 text-xl rounded-xl 
+          font-bold text-white font-mainFont bg-green-500 
+          md:h-20 md:text-2xl md:px-10 drop-shadow-xl"
         >
           add
         </button>
@@ -130,7 +144,7 @@ const App = () => {
       {!todoList.length ? 
         (<h2 className="text-center text-3xl text-green-700 uppercase mt-20 font-headerFont tracking-widest">no todo</h2>
         ):(
-        <div className="mt-5">{todoWrapper()}</div>
+        <div className="mt-5 md:mt-10">{todoWrapper()}</div>
       )}
     </main>
   );
