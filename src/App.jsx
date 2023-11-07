@@ -26,7 +26,7 @@ const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
         )}
       </div>
       <p
-        className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-700'} text-2xl md:text-4xl`}
+        className={`text-${todo.isChecked ? 'gray-500 line-through' : 'green-500'} text-2xl md:text-4xl`}
       >
         {todo.text}
       </p>
@@ -110,49 +110,50 @@ const App = () => {
   );
 
   return (
-    <main className="bg-slate-200 p-5 pt-8 h-screen w-full md:px-10 lg:w4/5 lg:m-auto 
-      lg:py-12 lg:px-14 lg:w-2/3 lg:h-full xl:py-16 xl:px-16 xl:w-4/5"
+    <main className="bg-slate-100 p-5 pt-8 h-screen w-full md:px-10 lg:w4/5 lg:m-auto 
+      lg:py-12 lg:px-14 lg:w-full lg:h-full xl:py-16 xl:px-16 xl:w-full"
     >
-      <section>
-      <div className="flex items-baseline justify-between pb-8 ">
-        <h1 className="capitalize text-5xl text-green-500 font-headerFont md:text-6xl lg:text-lg">
-          todo
-        </h1>
-        <h2 
-          style={{textShadow: "0px 0px 1px black"}}
-          className="text-s tracking-wider text-gray-600 font-semibold md:text-lg">{formattedDate}</h2>
-      </div>
+      <section className="lg:w-2/3 lg:m-auto">
+        <div className="flex items-baseline justify-between pb-8 ">
+          <h1 className="capitalize text-5xl text-green-500 font-headerFont md:text-6xl lg:text-4xl">
+            todo
+          </h1>
+          <h2 
+            style={{textShadow: "0px 0px 1px black"}}
+            className="text-s tracking-wider text-gray-600 font-semibold md:text-lg">{formattedDate}</h2>
+        </div>
 
-      <section className="flex items-center gap-2 p-0 w-full md:gap-4">
-        <input
-          type="text"
-          name="text"
-          value={inputValue}
-          onChange={handleChange}
-          placeholder="Type here..."
-          className="
-            border-4 text-gray-600 focus:outline-green-500 
-            focus:border-none border-green-500
-            bg-slate-200 w-full h-14 rounded-xl p-2 px-3 text-2xl
-            md:h-20 md:text-3xl md:px-4
-          "
-        />
-        <button
-          disabled={inputValue === "" && true}
-          onClick={addToDo}
-          className="uppercase h-14 px-4 text-xl rounded-xl 
-          font-bold text-white font-mainFont bg-green-500 
-          md:h-20 md:text-2xl md:px-10 shadow-md"
-        >
-          add
-        </button>
+        <section className="flex items-center gap-2 p-0 w-full md:gap-4">
+          <input
+            type="text"
+            name="text"
+            value={inputValue}
+            onChange={handleChange}
+            placeholder="Type here..."
+            className="
+              border-4 text-gray-600 focus:outline-green-500 
+              focus:border-none border-green-500
+              bg-slate-100 w-full h-14 rounded-xl p-2 px-3 text-2xl
+              md:h-20 md:text-3xl md:px-4
+            "
+          />
+          <button
+            disabled={inputValue === "" && true}
+            onClick={addToDo}
+            className="uppercase h-14 px-4 text-xl rounded-xl 
+            font-bold text-white font-mainFont bg-green-500 
+            md:h-20 md:text-2xl md:px-10 shadow-md"
+          >
+            add
+          </button>
+        </section>
+      
+        {!todoList.length ? 
+          (<h2 className="text-center text-3xl text-green-700 uppercase mt-20 font-headerFont tracking-widest">no todo</h2>
+          ):(
+          <div className="mt-5 md:mt-10">{todoWrapper()}</div>
+        )}
       </section>
-    </section>
-      {!todoList.length ? 
-        (<h2 className="text-center text-3xl text-green-700 uppercase mt-20 font-headerFont tracking-widest">no todo</h2>
-        ):(
-        <div className="mt-5 md:mt-10">{todoWrapper()}</div>
-      )}
     </main>
   );
 };
