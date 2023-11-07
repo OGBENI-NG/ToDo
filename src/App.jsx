@@ -110,7 +110,7 @@ const App = () => {
   );
 
   return (
-    <main className="bg-slate-100 p-5 pt-8 h-screen w-full md:px-10 lg:w4/5 lg:m-auto 
+    <main className="bg-slate-200 p-5 pt-8 h-screen w-full md:px-10 lg:w4/5 lg:m-auto 
       lg:py-12 lg:px-14 lg:w-full lg:h-full xl:py-16 xl:px-16 xl:w-full"
     >
       <section className="lg:w-2/3 lg:m-auto">
@@ -133,7 +133,7 @@ const App = () => {
             className="
               border-4 text-gray-600 focus:outline-green-500 
               focus:border-none border-green-500
-              bg-slate-100 w-full h-14 rounded-xl p-2 px-3 text-2xl
+              bg-slate-200 w-full h-14 rounded-xl p-2 px-3 text-2xl
               md:h-20 md:text-3xl md:px-4
             "
           />
