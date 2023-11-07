@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { formattedDate } from "../utility";
 import { v4 as uuidv4 } from "uuid";
 import { FiCircle, FiCheckCircle } from "react-icons/fi";
@@ -9,7 +9,6 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
   
   return(
-    
     <div
       onClick={() => onToggle(todo.id)}
       className={`
@@ -40,7 +39,6 @@ const TodoItem = ({ todo, onToggle, onDelete, slideIn}) => {
         </div>
       )}
     </div>
-    
   )
 };
 
@@ -63,18 +61,24 @@ const App = () => {
     return uuidv4();
   };
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const value = e.target.value;
     const newValue = value ? value.charAt(0).toUpperCase() + value.slice(1) : "";
     setInputValue(newValue);
-  };
+  },[inputValue])
 
-  const addToDo = () => {
-    const newTodo = { id: generateUniqueId(), text: inputValue, isChecked: false };
+ 
+  const addToDo = useCallback((id) => {
+    const newTodo = { 
+      id: generateUniqueId(), 
+      text: inputValue, 
+      isChecked: false
+    }
+
     setTodoList((prevTodo) => [newTodo, ...prevTodo]);
     setInputValue("");
     setSlicedIn(newTodo);
-  };
+  },[inputValue, slideIn])
 
   const toggleTodo = (id) => {
     setTodoList((prevTodo) =>
@@ -84,10 +88,11 @@ const App = () => {
     );
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = useCallback((id) => {
     setTodoList((prevTodo) => prevTodo.filter((todo) => todo.id !== id));
-    
-  };
+
+  },[todoList])
+
   
 
   const todoWrapper = () => (
@@ -105,12 +110,12 @@ const App = () => {
   );
 
   return (
-    <main className="p-5 pt-8 h-screen w-full md:px-10 lg:w4/5 lg:m-auto 
-      lg:py-12 lg:px-14 xl:py-16 xl:px-16 xl:w-4/5 bg-slate-200"
+    <main className="bg-slate-200 p-5 pt-8 h-screen w-full md:px-10 lg:w4/5 lg:m-auto 
+      lg:py-12 lg:px-14 lg:w-2/3 lg:h-full xl:py-16 xl:px-16 xl:w-4/5"
     >
       <section>
       <div className="flex items-baseline justify-between pb-8 ">
-        <h1 className="capitalize text-5xl text-green-500 font-headerFont md:text-6xl">
+        <h1 className="capitalize text-5xl text-green-500 font-headerFont md:text-6xl lg:text-lg">
           todo
         </h1>
         <h2 
