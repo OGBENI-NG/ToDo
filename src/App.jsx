@@ -78,7 +78,7 @@ const App = () => {
       <section className="m-auto lg:w-1/2 lg:h-auto">
         <div className="flex items-baseline justify-between pb-8 ">
           <h1 className="capitalize text-5xl text-green-500 font-headerFont md:text-6xl lg:text-4xl">
-            todo
+            toDo
           </h1>
           <h2 
             style={{textShadow: "0px 0px 1px black"}}
